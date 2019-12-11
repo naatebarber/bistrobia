@@ -4,14 +4,13 @@
     margin: 10px;
     border-radius: 4px;
     background-color: #efefef;
-    box-shadow: 0px 4px 8px #999;
+    box-shadow: 0px 5px 10px #bbb;
     grid-column: span 1;
     position: relative;
     overflow: hidden;
 }
 
 .card .image {
-    height: 200px;
     width: 100%;
     background-size: cover;
     background-position: center;
