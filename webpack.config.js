@@ -1,17 +1,23 @@
 const webpack = require("webpack");
+const contentful = require("contentful");
+
+var cf = contentful.createClient({
+    space: "u1n96xp4szaw",
+    accessToken: "5bb9cf2a0f26432f24ed31e19b5d8e89d6c23dcb43adea7268c7386b10b5366e"
+});
 
 module.exports = {
-    entry: __dirname + '/build/index.js',
+    entry: __dirname + '/build/App.jsx',
     mode: "development",
     module: {
         rules: [
             {
-                test: /\(.jsx|.js)$/,
+                test: /\.(jsx|js)$/,
                 exclude: /node_modules/,
                 use: ['babel-loader']
             },
             {
-                test: /\(.css)$/,
+                test: /\.(css)$/,
                 exclude: /node_modules/,
                 use: ['style-loader', 'css-loader']
             },
@@ -37,8 +43,15 @@ module.exports = {
         hot: true,
         contentBase: __dirname + '/dist/',
         port: 8000,
-        after: (app, server) => {
-
+        before: (app) => {
+            app.get("/cf_entry", (req, res, next) => {
+                console.log(req.query);
+                cf.getEntry(req.query.entryID).then(data => {
+                    res.send(data);
+                }).catch(err => {
+                    res.send("Error fetching data");
+                });
+            });
         }
     }
 }

@@ -1,3 +1,5 @@
 node_modules
+dist
+apiKeyMap.js
 yarn-error.log
 yarn.lock

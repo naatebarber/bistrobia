@@ -1,0 +1,9 @@
+@import '../root.css';
+
+.navigation {
+    height: 40px;
+    padding: 15px;
+    font-size: 40px;
+    border-bottom: 3px solid var(--color-3);
+    font-family: var(--font-2);
+}
