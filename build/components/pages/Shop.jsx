@@ -10,7 +10,7 @@ export default class Shop extends Component {
         
         return (
             <div className="page">
-                <GridWithContent />
+                <GridWithContent items={content}/>
             </div>
         )
     }

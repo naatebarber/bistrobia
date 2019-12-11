@@ -6,7 +6,7 @@
     margin-right: auto;
     padding: 30px;
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: 25% 25% 25% 25%;
 }
 
 @media screen and (min-width: 1160px) {

@@ -5,10 +5,14 @@
     border-radius: 4px;
     background-color: #efefef;
     box-shadow: 0px 4px 8px #999;
+    grid-column: span 1;
+    position: relative;
+    overflow: hidden;
 }
 
 .card .image {
     height: 200px;
+    width: 100%;
     background-size: cover;
     background-position: center;
 }
@@ -23,6 +27,15 @@
     font-size: 18px;
     font-family: var(--font-2);
     color:var(--color-1);
+    display: inline-block;
+}
+
+.card .description .sales-price {
+    font-size: 14px;
+    font-family: var(--font-2);
+    color: var(--color-2);
+    display: inline-block;
+    margin-left: 15px;
 }
 
 .card .description .text {

@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
 import '../../styles/reusables/grid.css';
+import Card from './Card';
 
 export default class Grid extends Component {
     render() {
-        const { content } = this.props;
-        console.log(content);
-        if(!content) return <div></div>;
+        const { items } = this.props;
+        console.log(items);
+        if(!items) return <div></div>;
         
         return (
             <div className="grid">
-                Hello
+                {items.map(item => (
+                    <Card item={item} key={item.fields.postName} />
+                ))}
             </div>
         )
     }
