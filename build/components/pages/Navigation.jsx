@@ -19,7 +19,7 @@ export default class Navigation extends Component {
                                 onClick={() => { linkTo(link[key]) }}>
                                 {key}
                             </div>
-                        )
+                        );
                     })}
                 </div>
             </div>

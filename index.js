@@ -1,6 +1,8 @@
 const http = require("http"),
+    fs = require("fs"),
+    mime = require("mime-types"),
     contentful = require("contentful"),
-    PORT = 8080;
+    PORT = 9000;
 
 var server = http.createServer();
 var cf = contentful.createClient({
@@ -11,20 +13,35 @@ var cf = contentful.createClient({
 server.on("request", async (req, res) => {
     let request = `${req.method} ${req.url.split("?")[0]}`;
     let params = {};
-    req.url.split("?")[1].split("&").forEach(pair => {
-        params[pair.split("=")[0]] = pair.split("=")[1];
-    });
+    if(req.url.includes("?"))
+        req.url.split("?")[1].split("&").forEach(pair => {
+            params[pair.split("=")[0]] = pair.split("=")[1];
+        });
     console.log("Request at " + request + " with params: " + JSON.stringify(params));
     switch(request) {
+        case "GET /":
+            fs.readFile(__dirname + "/dist/index.html", (err, data) => {
+                if(err) return res.writeHead(500).end("ISE");
+                return res.writeHead(200, {"Content-Type": mime.lookup(".html")}).end(data);
+            });
+            break;
         case "GET /cf_entry":
             const space = params.entryID ? await cf.getEntry(params.entryID) : "Bad request. No entry ID";
             console.log(space);
-            res.writeHead(200, {"ContentType": "text/json"});
-            res.end(JSON.stringify(space));
+            res.writeHead(200, {"ContentType": "text/json"}).end(JSON.stringify(space));
             break;
         default:
-            res.writeHead(200);
-            res.end("Content Not Available");
+            let path = __dirname + "/dist" + (req.url.includes("?") ? req.url.split("?")[0] : req.url);
+            console.log(path);
+            fs.exists(path, exist => {
+                if(exist)
+                    return fs.readFile(path, (err, data) => {
+                        if(err) 
+                            return res.writeHead(500).end("ISE");
+                        return res.writeHead(200, {"Content-Type": mime.lookup(path.substring(path.indexOf(".")))}).end(data);
+                    });
+                return res.writeHead(404).end("Content Not Available");
+            })
     }
 });
 
