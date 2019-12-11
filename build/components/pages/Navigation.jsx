@@ -4,7 +4,6 @@ import '../../styles/pages/navigation.css';
 export default class Navigation extends Component {
     render() {
         const { content, linkTo } = this.props;
-        console.log(this.props);
         if(!content) return <div></div>
         return (
             <div className="navigation">

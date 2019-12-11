@@ -28,11 +28,18 @@ server.on("request", async (req, res) => {
         case "GET /cf_entry":
             const space = params.entryID ? await cf.getEntry(params.entryID) : "Bad request. No entry ID";
             console.log(space);
-            res.writeHead(200, {"ContentType": "text/json"}).end(JSON.stringify(space));
+            res.writeHead(200, {"ContentType": mime.lookup(".json")}).end(JSON.stringify(space));
+            break;
+        case "GET /cf_postings":
+            const space = await cf.getEntries({
+                'content_type': 'posting',
+                // TODO: will have to have pagination from the front end
+            });
+            res.writeHead(200, {"Content-Type": mime.lookup(".json")}).end(JSON.stringify(space));
             break;
         default:
+            // Try for static files
             let path = __dirname + "/dist" + (req.url.includes("?") ? req.url.split("?")[0] : req.url);
-            console.log(path);
             fs.exists(path, exist => {
                 if(exist)
                     return fs.readFile(path, (err, data) => {

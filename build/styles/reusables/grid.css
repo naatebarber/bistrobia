@@ -1,0 +1,22 @@
+@import '../root.css';
+
+.grid {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 30px;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+}
+
+@media screen and (min-width: 1160px) {
+    .grid {
+        width: 1160px;
+    }
+}
+
+@media screen and (max-width: 760px) {
+    .grid {
+        grid-template-columns: auto auto;
+    }
+}

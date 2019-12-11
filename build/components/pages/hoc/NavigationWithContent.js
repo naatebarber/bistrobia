@@ -17,7 +17,7 @@ const linkTo = props => {
     }
 }
 
-export const withNavigation = withRouter(compose(
+export const NavigationWithContent = withRouter(compose(
     connect(),
     withStateHandlers(null, {
         onContent: state => data => ({
@@ -32,6 +32,5 @@ export const withNavigation = withRouter(compose(
                 .then(data => this.props.onContent(data))
                 .catch(err => console.log(err));
         }
-    }),
-    // withRouter()
+    })
 )(Navigation));

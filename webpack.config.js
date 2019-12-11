@@ -45,13 +45,25 @@ module.exports = {
         port: 8000,
         before: (app) => {
             app.get("/cf_entry", (req, res, next) => {
-                console.log(req.query);
-                cf.getEntry(req.query.entryID).then(data => {
-                    res.send(data);
-                }).catch(err => {
-                    res.send("Error fetching data");
+                    console.log(req.query);
+                    cf.getEntry(req.query.entryID).then(data => {
+                        res.send(data);
+                    }).catch(err => {
+                        res.send("Error fetching data");
+                    });
+                })
+                .get("/cf_postings", (req, res, next) => {
+                    cf.getEntries({
+                        "content_type": "posting"
+                    }).then(data => {
+                        res.send(data);
+                    }).catch(err => {
+                        res.send("Error fetching data");
+                    })
                 });
-            });
+        },
+        historyApiFallback: {
+            index: 'index.html'
         }
     }
 }

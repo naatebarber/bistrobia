@@ -10,18 +10,8 @@ import {
 import { connect } from 'react-redux';
 import contentHooks from '../../../../contentHooks';
 
-const stateReadout = props => event => {
-    console.log(props);
-}
-
-const mapStateToProps = state => {
-    return {
-        redux: state.redux
-    };
-}
-
-export const withHomePage = compose(
-    connect(mapStateToProps),
+export const HomePageWithContent = compose(
+    connect(),
     withStateHandlers(null, {
         onContent: state => data => ({
             content: data.fields
