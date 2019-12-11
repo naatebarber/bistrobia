@@ -6,7 +6,8 @@ import { Provider } from 'react-redux';
 import {
     Router,
     Switch,
-    Route
+    Route,
+    withRouter
 } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 import { preloadedState, reducer } from './store';
@@ -22,8 +23,8 @@ class App extends Component {
         return (
             <div>
                 <Provider store={reduxStore}>
-                    <Navigation></Navigation>
                     <Router history={history} >
+                        <Navigation></Navigation>
                         <Switch>
                             <Route exact path='/' component={withHomePage} />
                             <Route exact path='/bikes' />

@@ -5,22 +5,33 @@ import {
     compose
 } from 'recompose'
 import { connect } from 'react-redux'
-import { withRouter } from 'react-router';
+import { withRouter } from 'react-router-dom';
 import ContentHooks from '../../../../contentHooks';
 import Navigation from '../Navigation';
 
-export const withNavigation = compose(
+const linkTo = props => {
+    return {
+        linkTo: path => {
+            props.history.push(path);
+        }
+    }
+}
+
+export const withNavigation = withRouter(compose(
     connect(),
     withStateHandlers(null, {
         onContent: state => data => ({
             content: data.fields
         })
     }),
+    withProps(linkTo),
     lifecycle({
         componentDidMount() {
             fetch(ContentHooks.NAVIGATION)
                 .then(res => res.json())
-                .then(data => this.props.onContent(data));
+                .then(data => this.props.onContent(data))
+                .catch(err => console.log(err));
         }
-    })
-)(Navigation)
+    }),
+    // withRouter()
+)(Navigation));
