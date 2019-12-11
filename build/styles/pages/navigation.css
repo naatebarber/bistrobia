@@ -1,9 +1,51 @@
 @import '../root.css';
 
 .navigation {
-    height: 40px;
+    min-height: 40px;
     padding: 15px;
-    font-size: 40px;
     border-bottom: 3px solid var(--color-3);
     font-family: var(--font-2);
+}
+
+.navigation * {
+    user-select: none;
+}
+
+.title {
+    display: inline-block;
+    vertical-align: top;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+.menu-items {
+    display: inline-block;
+    font-size: 20px;
+    color: var(--color-1);
+    vertical-align: bottom;
+    padding-left: 20px;
+}
+
+.nav-link {
+    display: inline-block;
+    margin-left: 12px;
+    line-height: 40px;
+    cursor: pointer;
+    transition: all 120ms ease-in;
+}
+
+.nav-link:hover {
+    color: var(--color-3);
+}
+
+@media screen and (max-width: 760px) {
+    .menu-items {
+        display: block;
+        padding-left: 0px;
+    }
+
+    .nav-link {
+        margin-left: 0px;
+        margin-right: 12px;
+    }
 }

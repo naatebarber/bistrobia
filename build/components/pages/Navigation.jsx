@@ -8,7 +8,10 @@ export default class Navigation extends Component {
         return (
             <div className="navigation">
                 <div className="title">{content.title}</div>
-                <div className="menu-items"></div>
+                <div className="menu-items">
+                    {content.links.map(link => 
+                        <div className="nav-link">{Object.keys(link)[0]}</div>)}
+                </div>
             </div>
         )
     }

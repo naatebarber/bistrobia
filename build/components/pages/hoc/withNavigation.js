@@ -5,6 +5,7 @@ import {
     compose
 } from 'recompose'
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router';
 import ContentHooks from '../../../../contentHooks';
 import Navigation from '../Navigation';
 

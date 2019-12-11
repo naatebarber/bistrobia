@@ -26,6 +26,9 @@ class App extends Component {
                     <Router history={history} >
                         <Switch>
                             <Route exact path='/' component={withHomePage} />
+                            <Route exact path='/bikes' />
+                            <Route exact path='/shop' />
+                            <Route exact path='/account' />
                         </Switch>
                     </Router>
                 </Provider>
