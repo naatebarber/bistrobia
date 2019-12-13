@@ -1,13 +1,13 @@
 import {
-    withStateHandlers,
+    compose,
     lifecycle,
-    withProps,
-    compose
-} from 'recompose'
-import { connect } from 'react-redux'
+    withStateHandlers,
+    withProps
+} from 'recompose';
+import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import ContentHooks from '../../../../contentHooks';
-import Shop from '../Shop'; 
+import Custom from '../Custom';
 
 const helpers = props => {
     return {
@@ -20,27 +20,31 @@ const helpers = props => {
     }
 }
 
-export const ShopWithContent = withRouter(compose(
+export const CustomWithContent = withRouter(compose(
     connect(),
     withStateHandlers(null, {
         onContent: state => data => {
-            return {content: data.fields}
+            return {
+                content: data.fields
+            }
         },
         onPosts: state => data => {
-            return {posts: data.items}
+            return {
+                posts: data.items
+            }
         }
     }),
     withProps(helpers),
     lifecycle({
         componentDidMount() {
-            fetch(ContentHooks.SHOP_POSTS)
-                .then(res => res.json())
-                .then(data => this.props.onPosts(data))
-                .catch(err => console.log(err));
-            fetch(ContentHooks.SHOP_CONTENT)
+            fetch(ContentHooks.CUSTOM_SHOP_CONTENT)
                 .then(res => res.json())
                 .then(data => this.props.onContent(data))
                 .catch(err => console.log(err));
+            fetch(ContentHooks.CUSTOM_SHOP_POSTS)
+                .then(res => res.json())
+                .then(data => this.props.onPosts(data))
+                .catch(err => console.log(err));
         }
     })
-)(Shop));
+)(Custom))

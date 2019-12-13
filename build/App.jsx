@@ -14,6 +14,7 @@ import { preloadedState, reducer } from './store';
 import { NavigationWithContent } from './components/pages/hoc/NavigationWithContent';
 import { HomePageWithContent } from './components/pages/hoc/HomePageWithContent';
 import { ShopWithContent } from './components/pages/hoc/ShopWithContent';
+import { CustomWithContent } from './components/pages/hoc/CustomWithContent';
 import Shop from './components/pages/Shop';
 
 const history = createBrowserHistory(),
@@ -28,7 +29,7 @@ class App extends Component {
                         <NavigationWithContent></NavigationWithContent>
                         <Switch>
                             <Route exact path='/' component={HomePageWithContent} />
-                            <Route exact path='/bikes' />
+                            <Route exact path='/custom' component={CustomWithContent} />
                             <Route exact path='/shop' component={ShopWithContent} />
                             <Route exact path='/account' />
                         </Switch>

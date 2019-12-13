@@ -1,6 +1,6 @@
 @import '../root.css';
 
-.hero {
+.main-hero {
     padding: 30px;
     padding-top: 40px;
     min-height: 400px;
@@ -14,6 +14,6 @@
     text-shadow: 0 -10 6 black;
 }
 
-.hero-message {
+.main-hero-message {
     text-shadow: 0px -5px 0px var(--color-3);
 }

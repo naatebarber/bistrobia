@@ -5,16 +5,17 @@ import '../../styles/reusables/card.css';
 export default class Card extends Component {
     render() {
         const { imageShowcase, postDescription, postName, salesPrice } = this.props.item.fields;
+        if(!(imageShowcase && postDescription && postName && salesPrice)) return <div></div>;
+
         return (
             <div className="card">
                 <ExifOrientationImg
                     className="image"
-                    src={imageShowcase[0].fields.file.url}
-                    />
+                    src={imageShowcase[0].fields.file.url}/>
                 <div className="description">
                     <div className="header">{postName}</div>
                     <div className="sales-price">${salesPrice}</div>
-                    <div className="text">{postDescription}</div>
+                    <div className="text">{postDescription.length > 160 ? postDescription.substring(0, 160) + "..." : postDescription}</div>
                 </div>
             </div>
         )

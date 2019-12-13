@@ -45,7 +45,6 @@ module.exports = {
         port: 8000,
         before: (app) => {
             app.get("/cf_entry", (req, res, next) => {
-                    console.log(req.query);
                     cf.getEntry(req.query.entryID).then(data => {
                         res.send(data);
                     }).catch(err => {
@@ -55,9 +54,10 @@ module.exports = {
                         });
                     });
                 })
-                .get("/cf_postings", (req, res, next) => {
+                .get("/cf_post", (req, res, next) => {
+                    let postType = req.query.type == "custom" ? "customPosting" : "posting";
                     cf.getEntries({
-                        "content_type": "posting"
+                        "content_type": postType
                     }).then(data => {
                         res.send(data);
                     }).catch(err => {

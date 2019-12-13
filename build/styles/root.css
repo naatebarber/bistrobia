@@ -18,6 +18,20 @@ body {
     padding-bottom: 30px;
 }
 
+.hero {
+    font-family: var(--font-2);
+    color: white;
+    font-size: 50px;
+    padding: 30px;
+    min-height: 100px;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: top;
+    margin-bottom: 60px;
+    text-shadow: 0px -5px 0px var(--color-3);
+    text-align: center;
+}
+
 .header {
     font-size: 28px;
     color: var(--color-1);
@@ -36,4 +50,19 @@ body {
 }
 .showcase > element {
     box-shadow: 0px 5px 10px var(--color-3);
+}
+
+/* Category */
+
+.category-header {
+    color: var(--color-2);
+    font-size: 36px;
+    text-align: center;
+    padding: 30px;
+    font-family: var(--font-2);
+}
+
+.category-header span {
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--color-3);
 }

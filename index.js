@@ -30,9 +30,10 @@ server.on("request", async (req, res) => {
             console.log(space);
             res.writeHead(200, {"ContentType": mime.lookup(".json")}).end(JSON.stringify(space));
             break;
-        case "GET /cf_postings":
+        case "GET /cf_post":
+            const postType = params.type == "custom" ? "customPosting" : "posting";
             const space = await cf.getEntries({
-                'content_type': 'posting',
+                'content_type': postType,
                 // TODO: will have to have pagination from the front end
             });
             res.writeHead(200, {"Content-Type": mime.lookup(".json")}).end(JSON.stringify(space));
