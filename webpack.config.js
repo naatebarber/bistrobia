@@ -49,7 +49,10 @@ module.exports = {
                     cf.getEntry(req.query.entryID).then(data => {
                         res.send(data);
                     }).catch(err => {
-                        res.send("Error fetching data");
+                        res.send({
+                            "success": false,
+                            "error": err
+                        });
                     });
                 })
                 .get("/cf_postings", (req, res, next) => {
@@ -58,7 +61,10 @@ module.exports = {
                     }).then(data => {
                         res.send(data);
                     }).catch(err => {
-                        res.send("Error fetching data");
+                        res.send({
+                            "success": false,
+                            "error": err
+                        });
                     })
                 });
         },

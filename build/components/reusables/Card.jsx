@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Img from 'react-fix-image-orientation'
+import ExifOrientationImg from 'react-exif-orientation-img';
 import '../../styles/reusables/card.css';
 
 export default class Card extends Component {
@@ -7,7 +7,7 @@ export default class Card extends Component {
         const { imageShowcase, postDescription, postName, salesPrice } = this.props.item.fields;
         return (
             <div className="card">
-                <Img
+                <ExifOrientationImg
                     className="image"
                     src={imageShowcase[0].fields.file.url}
                     />
