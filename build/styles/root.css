@@ -21,9 +21,9 @@ body {
 .hero {
     font-family: var(--font-2);
     color: white;
-    font-size: 50px;
+    font-size: 65px;
     padding: 30px;
-    min-height: 100px;
+    min-height: 180px;
     background-attachment: fixed;
     background-size: cover;
     background-position: top;

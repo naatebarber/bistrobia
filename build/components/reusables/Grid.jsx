@@ -5,7 +5,6 @@ import Card from './Card';
 export default class Grid extends Component {
     render() {
         const { items } = this.props;
-        console.log(items);
         if(!items) return <div></div>;
         
         return (

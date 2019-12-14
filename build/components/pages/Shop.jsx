@@ -17,7 +17,6 @@ export default class Shop extends Component {
                     let categoryLabel = Object.keys(category),
                         categoryID = category[categoryLabel],
                         postsInCategory = filterPostsByCategory(categoryID)(posts);
-                    console.log(postsInCategory);
                     if(postsInCategory.length > 0)
                         return (
                             <div key={categoryID}>
