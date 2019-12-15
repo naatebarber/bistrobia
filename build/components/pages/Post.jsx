@@ -18,7 +18,19 @@ export default class Post extends Component {
                     </div>
                     <div className="post-text-wrapper">
                         <div className="post-description">{content.postDescription}</div>
-                        <div className="post-specs"></div>
+                        {content.specs 
+                            ?   <div className="post-specs">
+                                    <br></br>
+                                    <span className="post-specs-header">Specs</span>
+                                    {Object.keys(content.specs).map(key => (
+                                        <div className="specs-pair">
+                                            <span className="specs-key">{key}: </span>
+                                            <span className="specs-value">{content.specs[key]}</span>
+                                        </div>
+                                    ))}
+                                </div>
+                            : ''}
+                        <br></br>
                         <br></br>
                         <span className="post-actions">
                             <span className="add-to-cart"><i className="fas fa-cart-plus"></i></span>

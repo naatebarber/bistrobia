@@ -45,6 +45,25 @@
     line-height: 24px;
 }
 
+.post .post-specs-header {
+    font-family: var(--font-2);
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 30px;
+    color: var(--color-1);
+}
+
+.post .specs-pair {
+    font-family: var(--font-1);
+    margin: 3px;
+    margin-left: 0px;
+    color: var(--color-2);
+}
+
+.post .specs-key {
+    font-weight: bold;
+}
+
 .post .post-text-wrapper .post-actions {
     padding: 10px;
     background-color: #efefef;
