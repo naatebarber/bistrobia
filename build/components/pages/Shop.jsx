@@ -6,6 +6,7 @@ export default class Shop extends Component {
     render() {
         const { posts, content, filterPostsByCategory } = this.props;
         if(!(posts && content)) return <div></div>;
+        console.log(this.props);
         
         return (
             <div className="shop page">

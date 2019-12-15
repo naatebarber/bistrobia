@@ -5,10 +5,11 @@ import '../../styles/reusables/card.css';
 export default class Card extends Component {
     render() {
         const { imageShowcase, postDescription, postName, salesPrice } = this.props.item.fields;
+        const { linkToPost } = this.props;
         if(!(imageShowcase && postDescription && postName && salesPrice)) return <div></div>;
 
         return (
-            <div className="card">
+            <div className="card" onClick={linkToPost}>
                 <ExifOrientationImg
                     className="image"
                     src={imageShowcase[0].fields.file.url}/>

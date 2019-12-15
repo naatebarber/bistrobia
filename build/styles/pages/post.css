@@ -1,0 +1,90 @@
+@import '../root.css';
+
+.post .post-name {
+    font-size: 60px;
+    font-family: var(--font-2);
+    margin: 30px;
+    margin-top: 60px;
+    color: var(--color-1);
+    text-align: center;
+}
+
+.post .post-data-wrapper {
+    padding: 30px;
+    
+}
+
+.post .post-name > span {
+    border-bottom: 2px solid var(--color-3);
+    padding-bottom: 5px;
+}
+
+.post .post-image-wrapper {
+    position: relative;
+    display: inline-block;
+    max-width: 40%;
+    margin: 15px;
+}
+
+.post .post-image {
+    border-radius: 4px;
+    width: 100%;
+}
+
+.post .post-text-wrapper {
+    display: inline-block;
+    max-width: 50%;
+    vertical-align: top;
+    margin: 15px;
+}
+
+.post .post-text-wrapper .post-description {
+    font-family: var(--font-1);
+    color: var(--color-1);
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.post .post-text-wrapper .post-actions {
+    padding: 10px;
+    background-color: #efefef;
+    border-radius: 4px;
+    cursor: pointer;
+    user-select: none;
+    transition: all 120ms ease-in;
+}
+.post .post-text-wrapper .post-actions:hover {
+    background-color: #ddd;
+}
+
+
+.post .post-text-wrapper .post-sales-price {
+    margin-top: 20px;
+    font-family: var(--font-2);
+    color: var(--color-4);
+    font-size: 22px;
+}
+
+.post .post-text-wrapper .add-to-cart {
+    font-size: 22px;
+    margin-right: 10px;
+    color: var(--color-3);
+    font-family: var(--font-2);
+    border-radius: 4px;
+}
+
+@media screen and (max-width: 760px) {
+    .post .post-name {
+        font-size: 40px;
+    }
+
+    .post .post-image-wrapper {
+        max-width: 100%;
+        margin: 5px;
+    }
+
+    .post .post-text-wrapper {
+        max-width: 100%;
+        margin: 5px;
+    }
+}

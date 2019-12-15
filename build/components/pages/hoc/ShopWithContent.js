@@ -11,9 +11,6 @@ import Shop from '../Shop';
 
 const helpers = props => {
     return {
-        linkTo: path => {
-            props.history.push(path);
-        },
         filterPostsByCategory: category => posts => {
             return posts.filter(post => post.fields.metadata.category == category);
         }
