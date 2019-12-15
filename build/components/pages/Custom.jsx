@@ -11,7 +11,7 @@ export default class Custom extends Component {
             <div className="shop page">
                 <div className="hero" style={{
                     backgroundImage: `linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) ), url(${content.heroImage.fields.file.url})`,
-                }}>{content.shopName}</div>
+                }}>{content.customShopName}</div>
                 {/* sections */}
                 {content.categories.map(category => {
                     let categoryLabel = Object.keys(category),
