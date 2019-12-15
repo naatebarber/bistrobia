@@ -46,6 +46,7 @@
     margin-left: 5px;
     margin-right: 5px;
     transition: all 120ms ease-in;
+    opacity: 0.5;
 }
 
 .post .post-image-wrapper .image-navigation .image-nav-item:hover {
@@ -121,6 +122,15 @@
     .post .post-image-wrapper {
         max-width: 100%;
         margin: 5px;
+    }
+
+    .post .post-image-wrapper .image-navigation {
+        margin-top: 10px;
+    }
+
+    .post .post-image-wrapper .image-navigation .image-nav-item {
+        width: 14px; height: 14px;
+        border-radius: 7px;
     }
 
     .post .post-text-wrapper {

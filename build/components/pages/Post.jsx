@@ -6,9 +6,7 @@ export default class Post extends Component {
     render() {
         const { post, content, currentImageRef, updateImageRef } = this.props;
         if(!(content)) return <div></div>;
-
-        console.log(content);
-
+        
         return (
             <div className="post page">
                 <div className="post-name"><span>{content.postName}</span></div>
