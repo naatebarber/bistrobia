@@ -1,5 +1,6 @@
 import {
     withStateHandlers,
+    withState,
     withProps,
     lifecycle,
     compose
@@ -16,7 +17,11 @@ export const PostWithContent = withRouter(compose(
     connect(),
     withStateHandlers(null, {
         onContent: state => data => ({
-            content: data.fields
+            content: data.fields,
+            currentImageRef: data.fields.imageShowcase[0].fields.file.url
+        }),
+        updateImageRef: state => newRef => ({
+            currentImageRef: newRef
         })
     }),
     withProps(helpers),

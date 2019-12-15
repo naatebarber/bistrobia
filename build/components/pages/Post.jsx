@@ -4,7 +4,7 @@ import '../../styles/pages/post.css';
 
 export default class Post extends Component {
     render() {
-        const { post, content } = this.props;
+        const { post, content, currentImageRef, updateImageRef } = this.props;
         if(!(content)) return <div></div>;
 
         console.log(content);
@@ -14,7 +14,15 @@ export default class Post extends Component {
                 <div className="post-name"><span>{content.postName}</span></div>
                 <div className="post-data-wrapper">
                     <div className="post-image-wrapper">
-                        <ExifOrientationImg className="post-image" src={content.imageShowcase[0].fields.file.url}/>
+                        <ExifOrientationImg className="post-image" src={currentImageRef}/>
+                        <div className="image-navigation">
+                            {content.imageShowcase.map((val, index) => 
+                                <span 
+                                    className="image-nav-item" 
+                                    key={index} 
+                                    onClick={ () => updateImageRef(content.imageShowcase[index].fields.file.url) }></span> 
+                            )}
+                        </div>
                     </div>
                     <div className="post-text-wrapper">
                         <div className="post-description">{content.postDescription}</div>

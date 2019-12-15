@@ -31,6 +31,27 @@
     width: 100%;
 }
 
+.post .post-image-wrapper .image-navigation {
+    position: relative;
+    text-align: center;
+}
+
+.post .post-image-wrapper .image-navigation .image-nav-item {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: var(--color-2);
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 5px;
+    margin-right: 5px;
+    transition: all 120ms ease-in;
+}
+
+.post .post-image-wrapper .image-navigation .image-nav-item:hover {
+    background-color: var(--color-1);
+}
+
 .post .post-text-wrapper {
     display: inline-block;
     max-width: 50%;
