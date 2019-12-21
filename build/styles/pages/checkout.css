@@ -1,0 +1,15 @@
+@import '../root.css';
+
+.checkout .checkout-header {
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 30px;
+}
+
+.checkout .checkout-header span {
+    font-size: 50px;
+    border-bottom: 2px var(--color-3) solid;
+    padding-bottom: 10px;
+    font-family: var(--font-2);
+    color: var(--color-1);
+}

@@ -9,10 +9,15 @@ export default class Cart extends Component {
 
         return (
             <div className="cart page">
-                <div className="hero plain">{content.cartName}</div>
+                <div className="hero" style={{
+                    backgroundImage: `linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) ), url(${content.heroImage.fields.file.url})`
+                }}>{content.cartName}</div>
+                <div className="category-header"><span>Your Items</span></div>
+                { cart.contents.length ? '' :
+                    <div className="message">{content.emptyCartMessage}</div> }
                 <div className="cart-wrapper">
                     {cart.contents.map((item, index) => (
-                        <div className="cart-item" key={item.name}>
+                        <div className="cart-item" key={item.name + index}>
                             <div className="item-image">
                                 <ExifOrientationImg className="image" src={item.image} />
                             </div>
@@ -27,6 +32,10 @@ export default class Cart extends Component {
                         </div>
                     ))}
                 </div>
+                { cart.contents.length ?
+                    <div className="checkout"> 
+                        <span>{content.checkoutMessage}</span>
+                    </div> : '' }
             </div>
         )
     }

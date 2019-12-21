@@ -64,3 +64,25 @@
 .cart .item-remove i:hover {
     color: var(--color-3);
 }
+
+.cart .checkout {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.cart .checkout span {
+    padding: 15px;
+    font-size: 20px;
+    font-family: var(--font-2);
+    color: var(--color-1);
+    border-radius: 5px;
+    user-select: none;
+    cursor: pointer;
+    background-color: var(--color-5);
+    transition: all 120ms ease-in;
+}
+
+.cart .checkout span:hover {
+    background-color: var(--color-3);
+    color: white;
+}

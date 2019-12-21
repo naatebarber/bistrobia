@@ -5,7 +5,7 @@ export default class Navigation extends Component {
     render() {
         const { content, linkTo, cart } = this.props;
         if(!content) return <div></div>
-        console.log(cart);
+        
         return (
             <div className="navigation">
                 <div className="title">{content.title}</div>
