@@ -38,7 +38,12 @@ export default class Post extends Component {
                             : ''}
                         <br></br>
                         <br></br>
-                        <span className="post-actions" onClick={() => {addToCart("ITEM")} }>
+                        <span className="post-actions" onClick={() => {addToCart({
+                            name: content.postName,
+                            description: content.postDescription,
+                            price: content.salesPrice,
+                            image: content.imageShowcase[0].fields.file.url
+                        })} }>
                             <span className="add-to-cart"><i className="fas fa-cart-plus"></i></span>
                             <span className="post-sales-price">${content.salesPrice}</span>
                         </span>

@@ -18,6 +18,10 @@ const reducers = {
                 return Object.assign({}, state, {
                     contents: [...state.contents, action.item]
                 });
+            case 'REMOVE_FROM_CART':
+                return Object.assign({}, state, {
+                    contents: state.contents.filter((v, i) => (i != action.item))
+                });
             default: return state;
         }
     },

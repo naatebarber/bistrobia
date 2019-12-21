@@ -39,7 +39,7 @@
     color: var(--color-3);
 }
 
-.cart {
+.navigation .cart {
     font-size: 28px;
     position: absolute;
     top: 26px;
@@ -50,11 +50,11 @@
     transition: all 120ms ease-in;
 }
 
-.cart:hover {
+.navigation .cart:hover {
     color: var(--color-3);
 }
 
-.cart .items-badge {
+.navigation .cart .items-badge {
     color: white;
     background-color: var(--color-3);
     border-radius: 10px;

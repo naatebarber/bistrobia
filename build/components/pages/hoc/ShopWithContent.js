@@ -9,13 +9,11 @@ import { withRouter } from 'react-router-dom';
 import ContentHooks from '../../../../contentHooks';
 import Shop from '../Shop'; 
 
-const helpers = props => {
-    return {
-        filterPostsByCategory: category => posts => {
-            return posts.filter(post => post.fields.metadata.category == category);
-        }
+const helpers = props => ({
+    filterPostsByCategory: category => posts => {
+        return posts.filter(post => post.fields.metadata.category == category);
     }
-}
+})
 
 export const ShopWithContent = withRouter(compose(
     connect(),

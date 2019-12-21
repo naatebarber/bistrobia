@@ -1,0 +1,66 @@
+@import '../root.css';
+
+.cart-wrapper {
+    padding: 50px;
+}
+
+.cart-item {
+    padding: 15px;
+    background-color: var(--color-5);
+    border-radius: 4px;
+    margin: 20px;
+    display: grid;
+    grid-template-columns: 20% 40% auto min-content;
+    position: relative;
+}
+
+.cart-item .item-image {
+    grid-column: span 1;
+    position: relative;
+}
+
+.cart-item .item-image .image {
+    max-width: 100%;
+    min-height: 75px;
+    max-height: 100%;
+    border-radius: 4px;
+}
+
+.cart-item .item-details {
+    grid-column: span 1;
+}
+
+.cart-item .item-details .item-name {
+    font-family: var(--font-2);
+    color: var(--color-1);
+    font-size: 20px;
+}
+
+.cart-item .item-details .item-text {
+    margin-top: 10px;
+    font-family: var(--font-1);
+    color: var(--color-2);
+    font-size: 16px;
+}
+
+.cart .item-sales-price, .cart .item-remove {
+    font-family: var(--font-2);
+    color: var(--color-2);
+    font-size: 25px;
+    padding-left: 15px;
+    text-align: right;
+}
+
+.cart .item-sales-price {
+    line-height: 28px;
+}
+
+.cart .item-remove i {
+    cursor: pointer;
+    user-select: none;
+    transition: all 120ms ease-in;
+}
+
+.cart .item-remove i:hover {
+    color: var(--color-3);
+}
