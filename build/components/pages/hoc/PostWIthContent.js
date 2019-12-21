@@ -6,11 +6,16 @@ import {
     compose
 } from 'recompose';
 import { connect } from 'react-redux';
+// import { store } from 'redux';
 import { withRouter } from 'react-router-dom';
 import Post from '../Post';
 
 const helpers = props => ({
-    fromHex: hex => (new Buffer(hex, "hex").toString())
+    fromHex: hex => (new Buffer(hex, "hex").toString()),
+    addToCart: item => (props.dispatch({
+        type: "ADD_TO_CART",
+        item: item
+    }))
 })
 
 export const PostWithContent = withRouter(compose(
@@ -27,6 +32,7 @@ export const PostWithContent = withRouter(compose(
     withProps(helpers),
     lifecycle({
         componentDidMount() {
+            console.log(this.props);
             const entryID = this.props.fromHex(this.props.match.params.id);
             fetch(`/cf_entry?entryID=${entryID}`)
                 .then(res => res.json())

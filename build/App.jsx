@@ -9,7 +9,7 @@ import {
     Route
 } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
-import { preloadedState, reducer } from './store';
+import { initialState, combinedReducers } from './store';
 
 import { NavigationWithContent } from './components/pages/hoc/NavigationWithContent';
 import { HomePageWithContent } from './components/pages/hoc/HomePageWithContent';
@@ -19,7 +19,7 @@ import { PostWithContent } from './components/pages/hoc/PostWithContent';
 import { CartWithContent } from './components/pages/hoc/CartWithContent';
 
 const history = createBrowserHistory(),
-    reduxStore = createStore(reducer, preloadedState);
+    reduxStore = createStore(combinedReducers, initialState);
 
 class App extends Component {
     render() {

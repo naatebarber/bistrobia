@@ -18,7 +18,10 @@ const linkTo = props => {
 }
 
 export const NavigationWithContent = withRouter(compose(
-    connect(),
+    connect((state, ownProps) => {
+        const { cart } = state;
+        return { cart }
+    }),
     withStateHandlers(null, {
         onContent: state => data => ({
             content: data.fields

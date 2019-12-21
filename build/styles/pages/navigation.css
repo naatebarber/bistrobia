@@ -40,10 +40,10 @@
 }
 
 .cart {
-    font-size: 20px;
+    font-size: 28px;
     position: absolute;
-    top: 30px;
-    right: 30px;
+    top: 26px;
+    right: 26px;
     color: var(--color-1);
     cursor: pointer;
     user-select: none;
@@ -52,6 +52,19 @@
 
 .cart:hover {
     color: var(--color-3);
+}
+
+.cart .items-badge {
+    color: white;
+    background-color: var(--color-3);
+    border-radius: 10px;
+    height: 20px;
+    font-size: 14px;
+    min-width: 20px;
+    text-align: center;
+    line-height: 25px;
+    position: absolute;
+    top: 14px; left: 18px;
 }
 
 @media screen and (max-width: 760px) {

@@ -1,14 +1,32 @@
-module.exports = {
-    preloadedState: {
-        redux: true
+import { combineReducers } from 'redux';
+
+export const initialState = {
+    cart: {
+        contents: []
     },
-    reducer: (state = {}, action) => {
+    account: {
+        username: undefined,
+        email: undefined,
+        signed_in: false,
+    }
+};
+
+const reducers = {
+    "cart": (state = initialState.cart, action) => {
         switch(action.type) {
-            case "TOGGLE": 
+            case 'ADD_TO_CART':
                 return Object.assign({}, state, {
-                    redux: !state.redux
-                })
+                    contents: [...state.contents, action.item]
+                });
             default: return state;
         }
+    },
+    "account": (state = initialState.account, action) => {
+        return state;
     }
 }
+
+export const combinedReducers = combineReducers({
+    cart: reducers.cart,
+    account: reducers.account
+});

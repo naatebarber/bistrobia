@@ -4,7 +4,7 @@ import '../../styles/pages/post.css';
 
 export default class Post extends Component {
     render() {
-        const { post, content, currentImageRef, updateImageRef } = this.props;
+        const { post, content, currentImageRef, updateImageRef, addToCart } = this.props;
         if(!(content)) return <div></div>;
 
         return (
@@ -38,7 +38,7 @@ export default class Post extends Component {
                             : ''}
                         <br></br>
                         <br></br>
-                        <span className="post-actions">
+                        <span className="post-actions" onClick={() => {addToCart("ITEM")} }>
                             <span className="add-to-cart"><i className="fas fa-cart-plus"></i></span>
                             <span className="post-sales-price">${content.salesPrice}</span>
                         </span>
