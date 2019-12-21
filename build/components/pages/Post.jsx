@@ -6,7 +6,7 @@ export default class Post extends Component {
     render() {
         const { post, content, currentImageRef, updateImageRef } = this.props;
         if(!(content)) return <div></div>;
-        
+
         return (
             <div className="post page">
                 <div className="post-name"><span>{content.postName}</span></div>
@@ -29,7 +29,7 @@ export default class Post extends Component {
                                     <br></br>
                                     <span className="post-specs-header">Specs</span>
                                     {Object.keys(content.specs).map(key => (
-                                        <div className="specs-pair">
+                                        <div className="specs-pair" key={key}>
                                             <span className="specs-key">{key}: </span>
                                             <span className="specs-value">{content.specs[key]}</span>
                                         </div>

@@ -26,7 +26,7 @@ export const PostWithContent = withRouter(compose(
     }),
     withProps(helpers),
     lifecycle({
-        componentWillMount() {
+        componentDidMount() {
             const entryID = this.props.fromHex(this.props.match.params.id);
             fetch(`/cf_entry?entryID=${entryID}`)
                 .then(res => res.json())
