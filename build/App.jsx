@@ -16,6 +16,7 @@ import { HomePageWithContent } from './components/pages/hoc/HomePageWithContent'
 import { ShopWithContent } from './components/pages/hoc/ShopWithContent';
 import { CustomWithContent } from './components/pages/hoc/CustomWithContent';
 import { PostWithContent } from './components/pages/hoc/PostWithContent';
+import { CartWithContent } from './components/pages/hoc/CartWithContent';
 
 const history = createBrowserHistory(),
     reduxStore = createStore(reducer, preloadedState);
@@ -32,6 +33,7 @@ class App extends Component {
                             <Route exact path='/custom' component={CustomWithContent} />
                             <Route exact path='/shop' component={ShopWithContent} />
                             <Route exact path="/post:id" component={PostWithContent} />
+                            <Route exact path='/cart' component={CartWithContent} />
                             <Route exact path='/account' />
                         </Switch>
                     </Router>

@@ -5,6 +5,7 @@
     padding: 15px;
     border-bottom: 3px solid var(--color-3);
     font-family: var(--font-2);
+    position: relative;
 }
 
 .navigation * {
@@ -35,6 +36,21 @@
 }
 
 .nav-link:hover {
+    color: var(--color-3);
+}
+
+.cart {
+    font-size: 20px;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    color: var(--color-1);
+    cursor: pointer;
+    user-select: none;
+    transition: all 120ms ease-in;
+}
+
+.cart:hover {
     color: var(--color-3);
 }
 

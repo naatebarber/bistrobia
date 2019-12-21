@@ -21,6 +21,7 @@ export default class Navigation extends Component {
                         );
                     })}
                 </div>
+                <div className="cart" onClick={() => { linkTo('/cart') }}><i className="fas fa-shopping-cart"></i></div>
             </div>
         )
     }
