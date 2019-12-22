@@ -4,8 +4,9 @@ import '../../styles/pages/checkout.css';
 
 export default class Checkout extends Component {
     render() {
-        const { content } = this.props;
+        const { content, cart, history } = this.props;
         console.log(this.props);
+        if(cart.contents.length == 0) history.push("/");
         if(!(content)) return <div></div>;
 
         return (

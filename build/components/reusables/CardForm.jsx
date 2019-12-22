@@ -39,10 +39,19 @@ const createOptions = () => {
 
 class ModifiedCardElement extends Component {
     render() {
-        const { submit } = this.props;
+        const { submit, cart } = this.props;
         return (
             <div className="cardform" style={{margin: "auto"}}>
                 <form>
+                    <div className="cart-contents">
+                        {cart.contents.map((item, index) => (
+                            <div className="checkout-item-grid" key={index}>
+                                <div className="checkout-item-name">{item.name}</div>
+                                <div className="checkout-item-price">${item.price}</div>
+                            </div>
+                        ))}
+                        <div className="checkout-total">Total: ${cart.total}</div>
+                    </div>
                     <div className="payment-input-grid">
                         <input type="text" name="first" placeholder="First Name" className="span-2"/>
                         <input type="text" name="last" placeholder="Last Name" className="span-2"/>
