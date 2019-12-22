@@ -8,11 +8,6 @@ import {
     injectStripe,
     StripeProvider,
     CardElement,
-    CardNumberElement,
-    CardCVCElement,
-    CardExpiryElement,
-    PostalCodeElement,
-    PaymentRequestButtonElement,
     Elements
 } from 'react-stripe-elements';
 import ContentHooks from '../../../contentHooks';
@@ -20,20 +15,20 @@ import '../../styles/reusables/cardform.css';
 
 const createOptions = () => {
     return {
-      style: {
-        base: {
-          fontSize: '16px',
-          color: '#424770',
-          fontFamily: 'Bebas Neue, Open Sans, sans-serif',
-          letterSpacing: '0.025em',
-          '::placeholder': {
-            color: '#aab7c4',
-          },
-        },
-        invalid: {
-          color: '#c23d4b',
-        },
-      }
+        style: {
+            base: {
+                fontSize: '16px',
+                color: '#424770',
+                fontFamily: 'Bebas Neue, Open Sans, sans-serif',
+                letterSpacing: '0.025em',
+                '::placeholder': {
+                    color: '#aab7c4',
+                },
+            },
+            invalid: {
+                color: '#c23d4b',
+            },
+        }
     }
 }
 
