@@ -9,7 +9,7 @@ import {
     Route
 } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
-import { initialState, combinedReducers } from './store';
+import { initialState, combinedReducers, loaders } from './store';
 
 import { NavigationWithContent } from './components/pages/hoc/NavigationWithContent';
 import { HomePageWithContent } from './components/pages/hoc/HomePageWithContent';
@@ -20,7 +20,11 @@ import { CartWithContent } from './components/pages/hoc/CartWithContent';
 import { CheckoutWithContent } from './components/pages/hoc/CheckoutWithContent';
 
 const history = createBrowserHistory(),
-    reduxStore = createStore(combinedReducers, initialState);
+    reduxStore = createStore(combinedReducers, loaders.loadState() || initialState);
+
+reduxStore.subscribe(() => {
+    loaders.saveState(reduxStore.getState());
+});
 
 class App extends Component {
     render() {

@@ -12,6 +12,16 @@ export const initialState = {
     }
 };
 
+export const loaders = {
+    saveState: state => {
+        return localStorage.setItem('bistrobia-redux-state', JSON.stringify(state));
+    },
+    loadState: () => {
+        console.log("Loading state from memory...");
+        return JSON.parse(localStorage.getItem('bistrobia-redux-state'));
+    }
+}
+
 const reducers = {
     "cart": (state = initialState.cart, action) => {
         let contents, total;
