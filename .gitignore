@@ -3,3 +3,4 @@ dist
 apiKeyMap.js
 yarn-error.log
 yarn.lock
+contentHooks.js
