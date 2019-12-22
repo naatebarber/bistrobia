@@ -1,0 +1,88 @@
+@import '../root.css';
+
+.cardform {
+    background-color: var(--color-5);
+    border-radius: 4px;
+    padding: 30px;
+    box-shadow: 0px 5px 10px #bbb;
+    max-width: 600px;
+}
+
+.cardform form label span {
+    font-family: var(--font-2);
+    color: var(--color-1);
+    font-size: 22px;
+    line-height: 36px;
+    margin-left: 25px;
+    padding-bottom: 15px;
+}
+
+.cardform form fieldset {
+    background-color: #aaa;
+    padding: 10px;
+}
+
+.cardform .payment-input-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+}
+
+::placeholder {
+    color: #aab7c4
+}
+
+select,
+input,
+.StripeElement {
+    grid-column: span 4;
+    border: 2px solid transparent;
+    font-size: 16px;
+    color: var(--color-1);
+    font-family: var(--font-2);
+    letter-spacing: 0.025em;
+    padding: 10px 12px;
+    background-color: white;
+    box-shadow: 0 1px 3px 0 #e6ebf1;
+    transition: all 120ms ease-in;
+    margin: 10px;
+    border-radius: 4px;
+    box-shadow: 0px 2px 4px #aaa;
+}
+
+input:focus {
+    outline: none;
+    border: 2px solid var(--color-3);
+    box-shadow: 0px 0px 0px transparent;
+}
+
+.cardform .span-1 {
+    grid-column: span 1;
+}
+.cardform .span-2 {
+    grid-column: span 2;
+}
+.cardform .span-3 {
+    grid-column: span 3;
+}
+
+.cardform form button, .cardform form .button {
+    margin-top: 30px;
+    grid-column: 2 / span 2;
+    font-family: var(--font-2);
+    background-color: var(--color-5);
+    color: var(--color-1);
+    padding: 10px;
+    border-radius: 4px;
+    border: none;
+    font-size: 18px;
+    transition: all 120ms ease-in;
+    cursor: pointer;
+    box-shadow: 0px 2px 4px #aaa;
+}
+
+.cardform form button:hover, .cardform form .button:hover {
+    background-color: var(--color-3);
+    color: var(--color-5);
+    box-shadow: 0px 0px 8px #bbb;
+}

@@ -4,8 +4,9 @@ import '../../styles/pages/cart.css';
 
 export default class Cart extends Component {
     render() {
-        const { content, cart, removeFromCart } = this.props;
+        const { content, cart, removeFromCart, linkTo } = this.props;
         if(!(content)) return <div></div>;
+        console.log(cart);
 
         return (
             <div className="cart page">
@@ -34,7 +35,7 @@ export default class Cart extends Component {
                 </div>
                 { cart.contents.length ?
                     <div className="checkout"> 
-                        <span>{content.checkoutMessage}</span>
+                        <span onClick={() => { linkTo("/checkout") }}>{content.checkoutMessage}</span>
                     </div> : '' }
             </div>
         )

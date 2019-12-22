@@ -11,7 +11,9 @@ export default class Checkout extends Component {
         return (
             <div className="checkout page">
                 <div className="checkout-header"><span>{content.checkoutPageName}</span></div>
-                <CardForm />
+                <div className="form-wrapper">
+                    <CardForm />
+                </div>
             </div>
         );
     }

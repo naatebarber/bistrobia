@@ -7,5 +7,6 @@ module.exports = {
     'CUSTOM_SHOP_POSTS': '/cf_post?type=custom',
     'CART_CONTENT': '/cf_entry?entryID=2Ec9KoRaUAuD97wwgEyNGa',
     'CHECKOUT_CONTENT': '/cf_entry?entryID=4nkvs9hcPwmkQHnPuzRkU0',
-    'STRIPE_API_KEY': 'pk_test_PHWmJX2mpp6G74JK8pQQrBpA00wmzutEMW'
+    'STRIPE_API_KEY': 'pk_test_PHWmJX2mpp6G74JK8pQQrBpA00wmzutEMW',
+    'STRIPE_SECRET_KEY': 'sk_test_iDYIYREziYKgAW3hvamv7l4r00crCCboEh'
 }

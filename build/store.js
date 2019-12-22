@@ -2,7 +2,8 @@ import { combineReducers } from 'redux';
 
 export const initialState = {
     cart: {
-        contents: []
+        contents: [],
+        total: 0
     },
     account: {
         username: undefined,
@@ -13,15 +14,23 @@ export const initialState = {
 
 const reducers = {
     "cart": (state = initialState.cart, action) => {
+        let contents, total;
+
         switch(action.type) {
             case 'ADD_TO_CART':
-                return Object.assign({}, state, {
-                    contents: [...state.contents, action.item]
-                });
+                contents = [...state.contents, action.item],
+                total = contents.length > 1 
+                    ? contents.map(v => v.price).reduce((pv, cv) => cv + pv)
+                    : (contents[0] ? contents[0].price : 0);
+                return Object.assign({}, state, { contents, total });
+
             case 'REMOVE_FROM_CART':
-                return Object.assign({}, state, {
-                    contents: state.contents.filter((v, i) => (i != action.item))
-                });
+                contents = state.contents.filter((v, i) => (i != action.item)),
+                total = contents.length > 1 
+                    ? contents.map(v => v.price).reduce((pv, cv) => cv + pv)
+                    : (contents[0] ? contents[0].price : 0);
+                return Object.assign({}, state, { contents, total });
+
             default: return state;
         }
     },

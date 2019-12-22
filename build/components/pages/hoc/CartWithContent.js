@@ -15,7 +15,8 @@ const helpers = props => ({
             type: "REMOVE_FROM_CART",
             item: item
         })
-    }
+    },
+    linkTo: path => props.history.push(path)
 })
 
 export const CartWithContent = withRouter(compose(

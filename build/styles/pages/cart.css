@@ -12,6 +12,7 @@
     display: grid;
     grid-template-columns: 20% 40% auto min-content;
     position: relative;
+    box-shadow: 0px 2px 4px #bbb;
 }
 
 .cart-item .item-image {
