@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "webpack-dev-server",
     "build": "webpack",
-    "lint": "eslint ./build"
+    "lint": "eslint ./build",
+    "start": "nodemon ./index.js"
   },
   "babel": {
     "presets": [

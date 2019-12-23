@@ -1,58 +1,26 @@
-const http = require("http"),
-    fs = require("fs"),
-    mime = require("mime-types"),
+const express = require("express"),
+    bodyParser = require("body-parser"),
     contentful = require("contentful"),
-    PORT = 9000;
+    stripe = require("stripe");
 
-var server = http.createServer();
-var cf = contentful.createClient({
-    space: "u1n96xp4szaw",
-    accessToken: "5bb9cf2a0f26432f24ed31e19b5d8e89d6c23dcb43adea7268c7386b10b5366e"
-});
+const contentHooks = require("./contentHooks"),
+    getEntry = require("./server/contentful/getEntry"),
+    getPost = require("./server/contentful/getPost"),
+    handleCharge = require("./server/stripe/handleCharge");
 
-server.on("request", async (req, res) => {
-    let request = `${req.method} ${req.url.split("?")[0]}`;
-    let params = {};
-    if(req.url.includes("?"))
-        req.url.split("?")[1].split("&").forEach(pair => {
-            params[pair.split("=")[0]] = pair.split("=")[1];
-        });
-    console.log("Request at " + request + " with params: " + JSON.stringify(params));
-    switch(request) {
-        case "GET /":
-            fs.readFile(__dirname + "/dist/index.html", (err, data) => {
-                if(err) return res.writeHead(500).end("ISE");
-                return res.writeHead(200, {"Content-Type": mime.lookup(".html")}).end(data);
-            });
-            break;
-        case "GET /cf_entry":
-            const space = params.entryID ? await cf.getEntry(params.entryID) : "Bad request. No entry ID";
-            console.log(space);
-            res.writeHead(200, {"ContentType": mime.lookup(".json")}).end(JSON.stringify(space));
-            break;
-        case "GET /cf_post":
-            const postType = params.type == "custom" ? "customPosting" : "posting";
-            const space = await cf.getEntries({
-                'content_type': postType,
-                // TODO: will have to have pagination from the front end
-            });
-            res.writeHead(200, {"Content-Type": mime.lookup(".json")}).end(JSON.stringify(space));
-            break;
-        default:
-            // Try for static files
-            let path = __dirname + "/dist" + (req.url.includes("?") ? req.url.split("?")[0] : req.url);
-            fs.exists(path, exist => {
-                if(exist)
-                    return fs.readFile(path, (err, data) => {
-                        if(err) 
-                            return res.writeHead(500).end("ISE");
-                        return res.writeHead(200, {"Content-Type": mime.lookup(path.substring(path.indexOf(".")))}).end(data);
-                    });
-                return res.writeHead(404).end("Content Not Available");
-            })
-    }
-});
+const contentfulClient = contentful.createClient({
+        space: "u1n96xp4szaw",
+        accessToken: "5bb9cf2a0f26432f24ed31e19b5d8e89d6c23dcb43adea7268c7386b10b5366e"
+    }),
+    stripeClient = stripe(contentHooks.STRIPE_SECRET_KEY);
 
-server.listen(PORT, () => {
-    console.log("Server running on " + PORT);
-});
+const PORT = 9000;
+
+const app = express();
+app.use(bodyParser.json())
+   .use(express.static(__dirname + "/dist"))
+   .get("/cf_entry", getEntry(contentfulClient))
+   .get("/cf_post", getPost(contentfulClient))
+   .get("/charge", handleCharge(stripeClient))
+   .get("/*", (req, res) => res.sendFile(__dirname + "/dist/index.html", err => res.status(500).send(err)))
+   .listen(PORT, () => console.log("Server running on port " + PORT))
