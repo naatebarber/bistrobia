@@ -7,7 +7,7 @@
     "dev": "webpack-dev-server",
     "build": "webpack",
     "lint": "eslint ./build",
-    "lint:node": "eslint ./server",
+    "lint:node": "eslint ./server ./index.js ./webpack.config.js",
     "start": "nodemon ./index.js"
   },
   "babel": {
