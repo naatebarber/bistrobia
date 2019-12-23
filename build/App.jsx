@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { compose } from 'recompose';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import {
